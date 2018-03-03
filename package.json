@@ -1,0 +1,42 @@
+{
+  "name": "confusion",
+  "version": "1.0.0",
+  "description": "This is a website for Ristorante Con Fusion",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run watch:all",
+    "scss": "node-sccs -o css/ css/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:scss": "onchange 'css/*.scss' -- npm run scss",
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
+    "lite": "lite-server",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin",
+    "imagemin": "imagemin img/* -o dist/img",
+    "clean": "rimraf dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-flatmap": "^1.0.2",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-rev": "^8.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-usemin": "^0.3.29",
+    "lite-server": "^2.2.2",
+    "node-sass": "^4.7.2",
+    "onchange": "^3.3.0",
+    "parallelshell": "^3.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0"
+  }
+}
